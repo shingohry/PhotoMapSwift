@@ -20,9 +20,9 @@ class ViewController: UIViewController {
         self.mapView.rotateEnabled = false
         self.mapView.pitchEnabled = false
         
-        let centerCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(35.681382, 139.766084)
-        let initialSpan: MKCoordinateSpan = MKCoordinateSpanMake(0.4, 0.4)
-        let initialRegion: MKCoordinateRegion = MKCoordinateRegionMake(centerCoordinate, initialSpan)
+        let centerCoordinate = CLLocationCoordinate2D(latitude: 35.681382, longitude: 139.766084)
+        let initialSpan = MKCoordinateSpan(latitudeDelta: 0.4, longitudeDelta: 0.4)
+        let initialRegion = MKCoordinateRegion(center: centerCoordinate, span: initialSpan)
         self.mapView.setRegion(initialRegion, animated: true)
     }
 
