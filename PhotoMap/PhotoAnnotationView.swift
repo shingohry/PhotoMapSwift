@@ -27,6 +27,9 @@ class PhotoAnnotationView: MKAnnotationView {
         
         self.frame = CGRect(origin: self.frame.origin, size: PhotoAnnotationView.size)
         
+        self.canShowCallout = true
+        self.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
+        
         self.thumbnailImageView = UIImageView(frame: CGRect(origin: CGPointZero, size: PhotoAnnotationView.size))
         self.thumbnailImageView.contentMode = .ScaleAspectFill
         self.thumbnailImageView.clipsToBounds = true
