@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Photos
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
@@ -26,9 +26,42 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        let photoAnnotation = annotation as? PhotoAnnotation
+        let photoAnnotationViewID = "photoAnnotationView"
+        var photoAnnotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(photoAnnotationViewID) as? PhotoAnnotationView
+        
+        if photoAnnotationView == nil {
+            photoAnnotationView = PhotoAnnotationView(annotation: photoAnnotation, reuseIdentifier: photoAnnotationViewID)
+        }
+        
+        if let image = photoAnnotation?.image {
+            photoAnnotationView?.image = image
+        } else {
+            let screenScale = UIScreen.mainScreen().scale
+            let targetSize = CGSize(
+                width: PhotoAnnotationView.size.width * screenScale,
+                height: PhotoAnnotationView.size.height * screenScale)
+            
+            PHImageManager().requestImageForAsset(
+                photoAnnotation?.asset,
+                targetSize: targetSize,
+                contentMode: .AspectFill,
+                options: nil,
+                resultHandler: {(image, info) -> Void in
+                    photoAnnotation?.image = image;
+                    photoAnnotationView?.thumbnailImage = image;
+                }
+            )
+        }
+        
+        return photoAnnotationView
+    }
+    
     private func prepareMapView() {
         self.mapView.rotateEnabled = false
         self.mapView.pitchEnabled = false
+        self.mapView.delegate = self
         
         let centerCoordinate = CLLocationCoordinate2D(latitude: 35.681382, longitude: 139.766084)
         let initialSpan = MKCoordinateSpan(latitudeDelta: 0.4, longitudeDelta: 0.4)
@@ -56,9 +89,8 @@ class ViewController: UIViewController {
         fetchResult?.enumerateObjectsUsingBlock ({result, index, stop in
             
             if let asset = result as? PHAsset {
-                if let location = asset.location {
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = location.coordinate
+                if asset.location != nil {
+                    let annotation = PhotoAnnotation(asset: asset)
                     self.mapView.addAnnotation(annotation)
                 }
             }
