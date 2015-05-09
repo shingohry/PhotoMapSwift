@@ -20,7 +20,7 @@ class PhotoAnnotationView: MKAnnotationView {
         }
     }
     
-    private let thumbnailImageView: UIImageView!
+    private let thumbnailImageView: UIImageView! = UIImageView(frame: CGRect(origin: CGPointZero, size: PhotoAnnotationView.size))
     
     override init(annotation: MKAnnotation!, reuseIdentifier: String!) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
@@ -30,7 +30,6 @@ class PhotoAnnotationView: MKAnnotationView {
         self.canShowCallout = true
         self.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
         
-        self.thumbnailImageView = UIImageView(frame: CGRect(origin: CGPointZero, size: PhotoAnnotationView.size))
         self.thumbnailImageView.contentMode = .ScaleAspectFill
         self.thumbnailImageView.clipsToBounds = true
         self.addSubview(self.thumbnailImageView)
