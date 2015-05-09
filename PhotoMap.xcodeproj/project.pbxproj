@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C90039501ABFF627004DD688 /* PhotoAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900394F1ABFF627004DD688 /* PhotoAnnotation.swift */; };
 		C90039521ABFFACB004DD688 /* PhotoAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90039511ABFFACB004DD688 /* PhotoAnnotationView.swift */; };
+		C9664E101AFDD77E00E79E0A /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9664E0F1AFDD77E00E79E0A /* AssetViewController.swift */; };
+		C9664E121AFDF8D700E79E0A /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9664E111AFDF8D700E79E0A /* ImageCell.swift */; };
 		C98FA1C21A239B3B00249988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FA1C11A239B3B00249988 /* AppDelegate.swift */; };
 		C98FA1C41A239B3B00249988 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FA1C31A239B3B00249988 /* ViewController.swift */; };
 		C98FA1C71A239B3B00249988 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98FA1C51A239B3B00249988 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		C900394F1ABFF627004DD688 /* PhotoAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAnnotation.swift; sourceTree = "<group>"; };
 		C90039511ABFFACB004DD688 /* PhotoAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAnnotationView.swift; sourceTree = "<group>"; };
+		C9664E0F1AFDD77E00E79E0A /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
+		C9664E111AFDF8D700E79E0A /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		C98FA1BC1A239B3B00249988 /* PhotoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98FA1C01A239B3B00249988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C98FA1C11A239B3B00249988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				C98FA1C81A239B3B00249988 /* Images.xcassets */,
 				C98FA1CA1A239B3B00249988 /* LaunchScreen.xib */,
 				C98FA1BF1A239B3B00249988 /* Supporting Files */,
+				C9664E0F1AFDD77E00E79E0A /* AssetViewController.swift */,
+				C9664E111AFDF8D700E79E0A /* ImageCell.swift */,
 			);
 			path = PhotoMap;
 			sourceTree = "<group>";
@@ -224,8 +230,10 @@
 			files = (
 				C90039521ABFFACB004DD688 /* PhotoAnnotationView.swift in Sources */,
 				C98FA1C41A239B3B00249988 /* ViewController.swift in Sources */,
+				C9664E101AFDD77E00E79E0A /* AssetViewController.swift in Sources */,
 				C98FA1C21A239B3B00249988 /* AppDelegate.swift in Sources */,
 				C90039501ABFF627004DD688 /* PhotoAnnotation.swift in Sources */,
+				C9664E121AFDF8D700E79E0A /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
