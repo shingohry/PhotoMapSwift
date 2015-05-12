@@ -50,7 +50,21 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WIj-px-46P" id="hhV-9p-arp">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="72Q-61-Kg5">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="72Q-61-Kg5" secondAttribute="bottom" id="bhG-Dq-oLB"/>
+                                        <constraint firstItem="72Q-61-Kg5" firstAttribute="leading" secondItem="hhV-9p-arp" secondAttribute="leading" id="ho8-a5-Oag"/>
+                                        <constraint firstAttribute="trailing" secondItem="72Q-61-Kg5" secondAttribute="trailing" id="idP-Be-ge3"/>
+                                        <constraint firstItem="72Q-61-Kg5" firstAttribute="top" secondItem="hhV-9p-arp" secondAttribute="top" id="qa2-7d-KO4"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="assetImageView" destination="72Q-61-Kg5" id="T6r-RK-rxc"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="f7K-nT-czZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
