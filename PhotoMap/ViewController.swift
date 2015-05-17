@@ -21,6 +21,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.checkAuthorizationStatus()
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "assetViewControllerSegue" {
+                let annotationView = sender as! MKAnnotationView
+                
+                let assetViewController = segue.destinationViewController as! AssetViewController
+                assetViewController.annotation = annotationView.annotation as? PhotoAnnotation
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +67,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
         
         return photoAnnotationView
+    }
+    
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        let coordinate :CLLocationCoordinate2D = view.annotation.coordinate
+        var region :MKCoordinateRegion = mapView.region
+        region.center = coordinate
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        self.performSegueWithIdentifier("assetViewControllerSegue", sender: view)
     }
     
     private func prepareMapView() {
